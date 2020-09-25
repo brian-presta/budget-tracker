@@ -39,7 +39,7 @@ async function uploadBudgetTransactions() {
                 const transaction = db.transaction(['budget_transactions'], 'readwrite')
                 const objectStore = transaction.objectStore('budget_transactions')
                 objectStore.clear()
-                alert("Offline budgets have been submitted!")
+                alert("Offline transactions have been uploaded!")
                 location.reload()
             }
             catch(err) {

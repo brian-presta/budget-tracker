@@ -137,12 +137,13 @@ function sendTransaction(isAdding) {
   })
   .catch(err => {
     // fetch failed, so save in indexed db
-    console.log("Can't access network, saving to IndexDB")
     saveRecord(transaction);
 
     // clear form
     nameEl.value = "";
     amountEl.value = "";
+
+    alert("Unable to post transaction to database. The transaction has been recorded, it will be uploaded when the network connection is restored.")
   });
 }
 
