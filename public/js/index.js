@@ -12,7 +12,8 @@ fetch("/api/transaction")
     populateTotal();
     populateTable();
     populateChart();
-  });
+  })
+  .catch(error => console.log(error))
 
 function populateTotal() {
   // reduce transaction amounts to a single total value
@@ -136,6 +137,7 @@ function sendTransaction(isAdding) {
   })
   .catch(err => {
     // fetch failed, so save in indexed db
+    console.log("Can't access network, saving to IndexDB")
     saveRecord(transaction);
 
     // clear form
